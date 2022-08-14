@@ -1,0 +1,28 @@
+<h1 class="text-danger">LOGIN PAGE</h1>
+
+<div class="container">
+    <!-- {{loginForm.value | json}} -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>
+                <h1>USERNAME :</h1>
+            </label>
+            <input type="text" formControlName="username" class="form-control"
+                [class.is-invalid]=" f.username.hasError('required') && f.username.touched">
+            <small *ngIf="f.username.hasError('required') && f.username.touched" class="text-danger">USERNAME is
+                required</small>
+        </div>
+        <br>
+        <div>
+            <label>
+                <h1>PASSWORD :</h1>
+            </label>
+            <input type="password" formControlName="password" class="form-control"
+                [class.is-invalid]=" f.password.hasError('required') && f.password.touched">
+            <small *ngIf="f.password.hasError('required') && f.password.touched" class="text-danger">PASSWORD is
+                required</small>
+        </div><br>
+        <input class="btn btn-outline-success" [disabled]="loginForm.invalid" type="submit">
+    </form>
+
+</div>

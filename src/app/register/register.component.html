@@ -1,0 +1,46 @@
+<h1 class="text-success">REGISTRATION PAGE</h1>
+<div class="container">
+    <!-- {{loginForm.value | json}} -->
+    <form [formGroup]="RegisterForm" (ngSubmit)="onRegister()">
+        <div class="form-group">
+            <label>
+                <h1>USERNAME :</h1>
+            </label>
+            <input type="text" formControlName="UserName" class="form-control"
+                [class.is-invalid]=" f. UserName.hasError('required') && f. UserName.touched">
+            <small *ngIf="f.UserName.hasError('required') && f. UserName.touched" class="text-danger">USERNAME is
+                required</small>
+            <small *ngIf="Used_user==true" class="text-danger">Username is already used</small>
+        </div>
+        <br>
+        <div>
+            <label>
+                <h1>PASSWORD :</h1>
+            </label>
+            <input [type]="Password" formControlName="Password" class="form-control"
+                [class.is-invalid]=" f.Password.hasError('required') && f.Password.touched">
+            <small *ngIf="f.Password.hasError('required') && f.Password.touched" class="text-danger">PASSWORD is
+                required</small>
+        </div>
+        <br>
+        <div>
+            <label>
+                <h1>CONFIRM - PASSWORD :</h1>
+            </label>
+            <input [type]="Password" formControlName="Cpassword" class="form-control"
+                [class.is-invalid]=" f.Cpassword.hasError('required') && f.Cpassword.touched">
+            <label for="showPassword">Show </label>&nbsp;
+            <input type="checkbox" (click)="toggleShow()" id="showPassword"><br>
+            <small *ngIf="f.Cpassword.hasError('required') && f.Cpassword.touched" class="text-danger">CPASSWORD is
+                required</small><br>
+            <small *ngIf="RegisterForm.errors?.misMatch && f.Cpassword.touched" class="text-danger">Password do not
+                match</small><br>
+
+        </div>
+        <br>
+        <input class="btn btn-outline-success" [disabled]="RegisterForm.invalid" type="submit">
+    </form>
+
+    <!-- {{RegisterForm.value | json}} -->
+
+</div>

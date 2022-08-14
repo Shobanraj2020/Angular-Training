@@ -1,0 +1,18 @@
+<p>home works!</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">TITLE</th>
+            <th scope="col">STATUS</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let values of tableValues">
+            <td class="table-primary">{{values.id}}</td>
+            <td>{{values.title}}</td>
+            <td>{{values.completed}}</td>
+        </tr>
+
+    </tbody>
+</table>
